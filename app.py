@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Приложение работает в облаке!"
+    secret = os.environ.get('MY_SECRET_MESSAGE', 'не задана')
+    return f"Приложение работает! Секрет: {secret}"
 
 
 if __name__ == '__main__':
